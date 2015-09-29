@@ -2,21 +2,30 @@
   let crypto = Npm.require('crypto')
 
   Meteor.startup( () => {
-      console.log( 'startup');
 
-      Meteor.setInterval( ()=>{
+      //Meteor.setInterval( ()=>{
 
-        let iso =  new Date().toISOString()
+        let dateTime = new Date();
+        let iso =  dateTime.toISOString();
         let hmac = crypto.createHmac('sha256', Meteor.settings.paysimple.secret).update(new Buffer( iso ).toString() ).digest('base64')
 
         let headers = {
           'Authorization': `PSSERVER AccessId = ${Meteor.settings.paysimple.username}; Timestamp = ${iso}; Signature = ${hmac}`
         }
 
-        request.get({url:Meteor.settings.paysimple.url, strictSSL:false, headers:headers}, (err, response, body)=>{
-          console.log( body );
+        let present = new moment();
+        let startdate =  present.subtract(30,'days').utc().format();
+        let uri  = `${Meteor.settings.paysimple.url}/v4/payment?startdate=?${startdate}`
+
+        HTTP.call( "GET", uri, {headers}, ( err, result )=>{
+          //TODO: page through large dataset
+          let data =  result['data'];
+
+          data['Response'].forEach( (item) => {
+              Payments.update( {Id:item.Id}, {$set:item}, {upsert:true} );
+          })
         });
 
-      }, 5000)
+      //}, 1000)
 
   });

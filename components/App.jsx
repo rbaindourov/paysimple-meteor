@@ -1,16 +1,34 @@
 // App component - represents the whole app
+
+
 App = React.createClass({
-  getTasks() {
-    return [
-      { _id: 1, text: "This is task 1" },
-      { _id: 2, text: "This is task 2" },
-      { _id: 3, text: "This is task 3" }
-    ];
+
+  mixins: [ReactMeteorData],
+  templateName: "App",
+
+  getMeteorData: function() {
+    try{
+
+      console.log( 'getMeteorData')
+
+      let handle =  Meteor.subscribe("payments");
+      let records = Payments.find( {} ).fetch();
+
+      return {
+            ready: handle.ready(),
+            records: records,
+      }
+
+    }catch( e ){
+      console.log( 'getMeteorData', e )
+    }
   },
 
+
   renderTasks() {
-    return this.getTasks().map((task) => {
-      return <Task key={task._id} task={task} />;
+    return this.data.records.map(( item ) => {
+
+      return <LineItem key={item.Id} item={item} />;
     });
   },
 
