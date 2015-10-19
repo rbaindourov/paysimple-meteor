@@ -33,17 +33,17 @@ App = React.createClass({
   },
 
   render() {
+
     return (
       <div className="container">
         <header>
           <h1>Settled Transcations</h1>
+          <button className="btn btn-primary"> Download CSV </button>
         </header>
 
-        <table>
+        <table className="table">
           <tr>
             <th>Transaction Id</th>
-            <th>ReferenceId </th>
-            <th>EstimatedSettleDate</th>
             <th>CustomerId</th>
             <th>CustomerFirstName</th>
             <th>CustomerLastName</th>

@@ -1,0 +1,22 @@
+{
+  "servers": [
+    {
+      "host": "paysimple.buildsavings.com",
+      "pem": "~/.ssh/id_rsa"
+      "sshOptions": { "port" : 7022 },
+      "env": {}
+    }
+  ],
+
+  "setupMongo": true,
+  "appName": "paysimple",
+  "app": "~/paysimple",
+
+  "env": {
+    "PORT": 80,
+    "ROOT_URL": "http://paysimple.buildsavings.com"
+  },
+
+  "deployCheckWaitTime": 15,
+  "enableUploadProgressBar": true
+}

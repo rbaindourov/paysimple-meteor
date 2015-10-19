@@ -24,3 +24,5 @@ react
 momentjs:moment
 http
 iron:router
+twbs:bootstrap
+fourseven:scss

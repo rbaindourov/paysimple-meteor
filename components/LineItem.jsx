@@ -4,8 +4,6 @@ LineItem = React.createClass({
     return (
       <tr>
         <td>{this.props.item.Id}</td>
-        <td>{this.props.item.ReferenceId}</td>
-        <td>{this.props.item.EstimatedSettleDate}</td>
         <td>{this.props.item.CustomerId}</td>
         <td>{this.props.item.CustomerFirstName}</td>
         <td>{this.props.item.CustomerLastName}</td>
