@@ -19,5 +19,5 @@
   },
 
   "deployCheckWaitTime": 15,
-  "enableUploadProgressBar": true
+  "enableUploadProgressBar": false
 }
