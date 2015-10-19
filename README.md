@@ -1,6 +1,7 @@
 # paysimple-meteor
 
 This is a Meteor 1.2 Project to integrate with paysimple.com API using ES2015 and ReactJS.
+
 Make sure to replace username and secret code in settings.json file to match your account.
 
 
@@ -16,5 +17,3 @@ Learned that it's not possible to use platform agnostic RequestJS due to Fiber e
 
 
 Using NodeJS built in `crypto` for API integration.
-
-
