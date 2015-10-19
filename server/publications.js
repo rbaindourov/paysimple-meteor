@@ -1,3 +1,3 @@
 Meteor.publish('payments', function () {
-  return Payments.find({});
+  return Payments.find({Status:"Settled"});
 });

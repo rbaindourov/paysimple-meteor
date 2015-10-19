@@ -25,7 +25,7 @@ App = React.createClass({
   },
 
 
-  renderTasks() {
+  renderTransactions() {
     return this.data.records.map(( item ) => {
 
       return <LineItem key={item.Id} item={item} />;
@@ -39,9 +39,22 @@ App = React.createClass({
           <h1>Settled Transcations</h1>
         </header>
 
-        <ul>
-          {this.renderTasks()}
-        </ul>
+        <table>
+          <tr>
+            <th>Transaction Id</th>
+            <th>ReferenceId </th>
+            <th>EstimatedSettleDate</th>
+            <th>CustomerId</th>
+            <th>CustomerFirstName</th>
+            <th>CustomerLastName</th>
+            <th>CustomerCompany</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>CreatedOn</th>
+            <th>LastModified</th>
+          </tr>
+          {this.renderTransactions()}
+        </table>
       </div>
     );
   }
