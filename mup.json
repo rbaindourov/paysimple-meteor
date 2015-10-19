@@ -2,7 +2,8 @@
   "servers": [
     {
       "host": "paysimple.buildsavings.com",
-      "pem": "~/.ssh/id_rsa"
+      "username": "deploy",
+      "pem": "~/.ssh/id_rsa",
       "sshOptions": { "port" : 7022 },
       "env": {}
     }
