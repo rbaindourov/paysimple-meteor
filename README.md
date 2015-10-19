@@ -15,5 +15,7 @@ Shared objects live in the `lib` folder
 
 Learned that it's not possible to use platform agnostic RequestJS due to Fiber errors in a callback while tryign to populate `Mongo.Collection` objects.
 
-
 Using NodeJS built in `crypto` for API integration.
+
+There is one issue, the tutorial on meteor.com for ReactJS doesn't have an official router. So I am using iron:router in a hacky way.
+
