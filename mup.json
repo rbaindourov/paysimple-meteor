@@ -11,7 +11,7 @@
 
   "setupMongo": true,
   "appName": "paysimple",
-  "app": "~/paysimple",
+  "app": ".",
 
   "env": {
     "PORT": 80,
