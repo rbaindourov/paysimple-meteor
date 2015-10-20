@@ -24,10 +24,12 @@ App = React.createClass({
     }
   },
 
-
+  downloadCSV(){
+    window.location.href="/csv";
+  },
+  
   renderTransactions() {
     return this.data.records.map(( item ) => {
-
       return <LineItem key={item.Id} item={item} />;
     });
   },
@@ -38,7 +40,7 @@ App = React.createClass({
       <div className="container">
         <header>
           <h1>Settled Transcations</h1>
-          <button className="btn btn-primary"> Download CSV </button>
+          <button className="btn btn-primary" onClick={this.downloadCSV}> Download CSV </button>
         </header>
 
         <table className="table">
